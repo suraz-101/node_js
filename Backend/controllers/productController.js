@@ -12,7 +12,9 @@ const getAllProducts = (req,res) =>
 //creating new product into the database
 const createProduct = (req,res) =>
 {
-    res.status(200).json({message:"product is created sucessfully"});
+   console.log("The request body is : ", req.body);
+   res.status(201).json({mesasge: "contact has been created"});
+
 }
 
 module.exports = {getAllProducts, createProduct}
