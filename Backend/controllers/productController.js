@@ -13,8 +13,20 @@ const getAllProducts = (req,res) =>
 const createProduct = (req,res) =>
 {
    console.log("The request body is : ", req.body);
+
+   const {name, username, password} = req.body;
+   if(!name || !username || !password)
+   {
+       res.status(400);
+       throw new Error("All fields are mandatory!");
+   }
    res.status(201).json({mesasge: "contact has been created"});
 
 }
 
-module.exports = {getAllProducts, createProduct}
+const updateProduct = (req,res) =>
+{
+    res.status(200).json({message:`The product is updated of ${req.params.id}`});
+}
+
+module.exports = {getAllProducts, createProduct, updateProduct}
