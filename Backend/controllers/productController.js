@@ -1,16 +1,16 @@
-
+const asyncHandler = require("express-async-handler");
 // //@desc Get All Products
 // //@route Get /api/v1/products
 // //@access public
 
 //Fetching all the products from database
-const getAllProducts = (req,res) =>
+const getAllProducts = asyncHandler(async(req,res) =>
 {
     res.status(200).json({message:"Route is working"});
-}
+});
 
 //creating new product into the database
-const createProduct = (req,res) =>
+const createProduct =asyncHandler(async (req,res) =>
 {
    console.log("The request body is : ", req.body);
 
@@ -22,11 +22,11 @@ const createProduct = (req,res) =>
    }
    res.status(201).json({mesasge: "contact has been created"});
 
-}
+});
 
-const updateProduct = (req,res) =>
+const updateProduct = asyncHandler(async(req,res) =>
 {
     res.status(200).json({message:`The product is updated of ${req.params.id}`});
-}
+});
 
 module.exports = {getAllProducts, createProduct, updateProduct}
